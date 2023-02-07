@@ -15,7 +15,7 @@ const CourseDetail = () => {
   useEffect(() => {
     const getSingleCourse = async () => {
       const response = await axios.get(
-        `http://localhost:4000/courses/find/${slug}`
+        `https://kursmeto.onrender.com/courses/find/${slug}`
       );
       setCourse(response.data);
     };
@@ -30,7 +30,7 @@ const CourseDetail = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/courses/enroll",
+        "https://kursmeto.onrender.com/courses/enroll",
         { course_id: enrollCourseID },
         {
           headers: {
@@ -53,7 +53,7 @@ const CourseDetail = () => {
     const leaveCourseID = course._id;
     try {
       const response = await axios.post(
-        "http://localhost:4000/courses/leaveCourse",
+        "https://kursmeto.onrender.com/leaveCourse",
         { course_id: leaveCourseID },
         {
           headers: {

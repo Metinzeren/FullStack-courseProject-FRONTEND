@@ -23,7 +23,7 @@ const NewCourse = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:4000/courses",
+        "https://kursmeto.onrender.com/courses",
         courseInfo,
         {
           headers: {

@@ -13,7 +13,9 @@ const Home = () => {
     const getCourses = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/courses");
+        const response = await axios.get(
+          "https://kursmeto.onrender.com/courses"
+        );
         setCourses(response);
         setLoading(false);
       } catch (error) {

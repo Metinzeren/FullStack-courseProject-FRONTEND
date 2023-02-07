@@ -9,7 +9,7 @@ const initialState = {
 
 export const login = createAsyncThunk("auth", async (formData) => {
   const response = await axios.post(
-    "http://localhost:4000/users/login",
+    "https://kursmeto.onrender.com/users/login",
     formData
   );
   localStorage.setItem("token", response.data.accessToken);

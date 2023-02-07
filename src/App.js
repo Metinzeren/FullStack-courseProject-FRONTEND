@@ -17,7 +17,9 @@ function App() {
 
   useEffect(() => {
     const getCate = async () => {
-      const response = await axios.get("http://localhost:4000/categories");
+      const response = await axios.get(
+        "https://kursmeto.onrender.com/categories"
+      );
       setCat(response.data);
     };
     getCate();

@@ -30,7 +30,7 @@ const Register = () => {
 
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:4000/users/register",
+        "https://kursmeto.onrender.com/users/register",
         formData
       );
       console.log(res.data);

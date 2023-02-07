@@ -19,11 +19,14 @@ const Contact = () => {
         return;
       }
       setLoading(true);
-      const res = await axios.post("http://localhost:4000/users/sendMail", {
-        email: contactInfo.email,
-        subject: "Website Contact Form",
-        message: `Name: ${contactInfo.name}\nMessage: ${contactInfo.message}`,
-      });
+      const res = await axios.post(
+        "https://kursmeto.onrender.com/users/sendMail",
+        {
+          email: contactInfo.email,
+          subject: "Website Contact Form",
+          message: `Name: ${contactInfo.name}\nMessage: ${contactInfo.message}`,
+        }
+      );
       console.log(res.data);
       toast.success("Mesaj bana ulaştı!");
       setLoading(false);

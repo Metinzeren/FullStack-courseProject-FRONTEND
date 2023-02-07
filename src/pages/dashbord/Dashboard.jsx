@@ -17,7 +17,7 @@ const Dashboard = () => {
         var config = {
           method: "get",
           maxBodyLength: Infinity,
-          url: "http://localhost:4000/users/dashboardPage",
+          url: "https://kursmeto.onrender.com/users/dashboardPage",
           headers: {
             Authorization: token,
           },
