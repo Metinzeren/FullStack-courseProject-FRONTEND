@@ -53,7 +53,7 @@ const CourseDetail = () => {
     const leaveCourseID = course._id;
     try {
       const response = await axios.post(
-        "https://kursmeto.onrender.com/leaveCourse",
+        "https://kursmeto.onrender.com/courses/leaveCourse",
         { course_id: leaveCourseID },
         {
           headers: {
