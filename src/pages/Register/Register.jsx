@@ -43,10 +43,10 @@ const Register = () => {
   };
   if (loading) return <Loading />;
   return (
-    <div className="h-screen flex items-center justify-center ">
+    <div className="h-screen w-full flex items-center justify-center ">
       <form
         onSubmit={createUser}
-        className="bg-gray-900 shadow-md rounded-xl p-10 w-1/3"
+        className="bg-gray-900 shadow-md rounded-xl p-10 md:w-1/3"
       >
         <h2 className="text-lg mb-5 text-white font-bold">Kayıt Ol</h2>
         <input
