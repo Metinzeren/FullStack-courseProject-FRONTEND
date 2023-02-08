@@ -77,6 +77,7 @@ const Register = () => {
           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
           className="p-2 rounded border-2 border-gray-400 w-full block mb-5"
         >
+          <option>Rol seçer misin?</option>
           <option value="student">Öğrenci</option>
           <option value="teacher">Öğretmen</option>
           <option value="admin">Admin</option>
