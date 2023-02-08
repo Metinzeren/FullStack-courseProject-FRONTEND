@@ -40,7 +40,7 @@ const Dashboard = () => {
         {studentInfo.length !== 0 ? (
           <h1 className="text-2xl text-white">Kayıt olduğunuz kurslar</h1>
         ) : (
-          <h1 className="text-2xl text-white">Oluşturduğunuz kurslar</h1>
+          <h1 className="text-2xl mt-8 text-white">Oluşturduğunuz kurslar</h1>
         )}
         {studentInfo.length !== 0 && (
           <StudentDashboard studentInfo={studentInfo} />

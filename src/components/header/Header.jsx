@@ -26,12 +26,12 @@ const Header = () => {
   };
   if (isLoading) return <Loading />;
   return (
-    <header className="fixed w-full z-50 top-0 bg-net p-4 flex  justify-between items-center">
-      <Link to="/" className="md:text-4xl text-white">
+    <header className="fixed w-full z-50 top-0 bg-net p-4 flex md:flex-row flex-col justify-between items-center">
+      <Link to="/" className="md:text-4xl text-2xl text-white ">
         MTN ZRN
       </Link>
-      <nav className="flex  items-center text-white justify-center">
-        <Link to="/" className="md:px-4">
+      <nav className="flex gap-4  items-center text-white md:justify-center justify-between">
+        <Link to="/" className="md:px-4 md:flex hidden items-center">
           <FontAwesomeIcon icon={faHome} /> Anasayfa
         </Link>
         <Link to="/contact" className="md:px-4">
