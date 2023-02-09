@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Categories = ({ courses }) => {
   return (
     <div className="mt-16 flex flex-col p-2">
-      <h1 className="text-3xl text-white">Kategoriler</h1>
+      {/* <h1 className="text-3xl text-white">Kategoriler</h1> */}
       <div className="flex flex-wrap">
         {courses.length !== 0 &&
           courses.data.categories.map((item, index) => {
