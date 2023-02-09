@@ -12,7 +12,7 @@ const CourseList = ({ course }) => {
           style={{ width: "300px", height: "200px", objectFit: "cover" }}
         />
         <h2 className="text-xl font-bold mt-3 text-kremUyum">{course.name}</h2>
-        <p className="text-sm text-kremUyum mt-2 overflow-hidden h-32">
+        <p className="text-sm text-kremUyum mt-2 overflow-hidden">
           {course.desc.length > 50
             ? course.desc.substring(0, 50) + "..."
             : course.desc}
