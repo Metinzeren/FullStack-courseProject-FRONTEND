@@ -78,7 +78,7 @@ const CourseDetail = () => {
           exit={{ opacity: 0 }}
         >
           <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-xl">
-            <div className="flex items-center mb-6">
+            <div className="flex md:flex-row flex-col items-center mb-6">
               <img
                 className="w-64 h-64 object-cover  rounded-full"
                 src={course.img}

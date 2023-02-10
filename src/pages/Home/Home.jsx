@@ -28,9 +28,7 @@ const Home = () => {
   if (loading) return <Loading />;
   return (
     <div className="flex flex-col items-center mt-24">
-      <h1 className="text-5xl text-center font-bold mb-5 text-white">
-        KURSLAR
-      </h1>
+      <h1 className="text-5xl text-center font-bold mb-5 text-sari">KURSLAR</h1>
       <Categories courses={courses} />
       <div className="flex flex-wrap mt-5">
         {courses &&

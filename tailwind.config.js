@@ -8,6 +8,7 @@ module.exports = {
         krem: "#DDC3A5",
         kremUyum: "#201E21",
         net: "#141414",
+        sari: "#FFD700",
       },
     },
   },

@@ -27,10 +27,10 @@ const Header = () => {
   if (isLoading) return <Loading />;
   return (
     <header className="fixed w-full z-50 top-0 bg-net p-4 flex md:flex-row flex-col justify-between items-center">
-      <Link to="/" className="md:text-4xl text-2xl text-white ">
+      <Link to="/" className="md:text-4xl text-2xl text-sari ">
         MTN ZRN
       </Link>
-      <nav className="flex gap-4  items-center text-white md:justify-center justify-between">
+      <nav className="flex gap-4  items-center text-sari md:justify-center justify-between">
         <Link to="/" className="md:px-4 md:flex hidden items-center">
           <FontAwesomeIcon icon={faHome} /> Anasayfa
         </Link>
@@ -38,13 +38,13 @@ const Header = () => {
           <FontAwesomeIcon icon={faMessage} /> İletişim
         </Link>
         {(user && user.length !== 0 && user.role === "admin" && (
-          <Link to="/newcourse" className="md:px-4 text-white">
+          <Link to="/newcourse" className="md:px-4 text-sari">
             <FontAwesomeIcon icon={faPlus} /> Kurs ekle
           </Link>
         )) ||
           undefined}
         {user ? (
-          <div className="flex items-center text-white">
+          <div className="flex items-center text-sari">
             <Link to="/dashboard" className="px-4">
               {user.name}
             </Link>
@@ -53,7 +53,7 @@ const Header = () => {
             </button>
           </div>
         ) : (
-          <div className="flex gap-2 text-white">
+          <div className="flex gap-2 text-sari">
             <Link to="/register" className="md:px-4 gap-1">
               <FontAwesomeIcon icon={faUser} /> Kayıt Ol
             </Link>
