@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import StudentDashboard from "../../components/studentDashboard/StudentDashboard";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 const Dashboard = () => {
   const [dashBoardInfo, setDashBoardInfo] = useState([]);
   const [studentInfo, setStudentInfo] = useState([]);
@@ -33,6 +35,27 @@ const Dashboard = () => {
     getCourses();
   }, []);
 
+  const deleteCourse = async (id) => {
+    setLoading(true);
+    try {
+      const res = await axios.delete(
+        `https://kursmeto.onrender.com/courses/${id}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      toast.success("Kurs Silindi!");
+      setLoading(false);
+      setDashBoardInfo((prevState) =>
+        prevState.filter((course) => course._id !== id)
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   if (loading) return <Loading />;
   return (
     <div className="mt-16 flex flex-col p-2">
@@ -56,6 +79,17 @@ const Dashboard = () => {
                   key={index}
                   className="rounded-lg overflow-hidden shadow-lg bg-white"
                 >
+                  <div className="flex justify-between items-center p-1">
+                    <FontAwesomeIcon
+                      className="text-green-500 text-xl cursor-pointer"
+                      icon={faEdit}
+                    />
+                    <FontAwesomeIcon
+                      onClick={() => deleteCourse(course._id)}
+                      className="text-rose-600 text-xl cursor-pointer"
+                      icon={faTrash}
+                    />
+                  </div>
                   <Link to={`/courses/find/${course.slug}`}>
                     <img
                       className="w-full object-cover h-48"
