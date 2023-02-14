@@ -60,25 +60,30 @@ const Header = () => {
             <FontAwesomeIcon icon={faMessage} /> İletişim
           </Link>
         </li>
-        {(user && user.length !== 0 && user.role === "admin" && (
-          <li className={navItem}>
-            <Link to="/newcourse" className="md:px-4 text-black">
-              <FontAwesomeIcon icon={faPlus} /> Kurs ekle
-            </Link>
-          </li>
-        )) ||
+        {(user &&
+          user.length !== 0 &&
+          (user.role === "admin" || user.role === "teacher") && (
+            <li className={navItem}>
+              <Link to="/newcourse" className="md:px-4 text-black">
+                <FontAwesomeIcon icon={faPlus} /> Kurs ekle
+              </Link>
+            </li>
+          )) ||
           undefined}
         {user ? (
-          <li className="flex  md:flex-row flex-col items-center text-black">
-            <Link to="/dashboard" className="navItem px-4">
+          <li className="flex gap-5 items-start md:flex-row flex-col text-black">
+            <Link to="/dashboard" className="navItem  md:px-4">
               {user.name}
             </Link>
-            <button className="navItem md:px-4 text-black" onClick={userLogout}>
+            <button
+              className="navItem md:px-4  text-black"
+              onClick={userLogout}
+            >
               <FontAwesomeIcon icon={faSignOutAlt} /> Çıkış Yap
             </button>
           </li>
         ) : (
-          <li className="flex gap-2 md:flex-row flex-col text-black">
+          <li className="flex gap-5 md:flex-row flex-col text-black">
             <Link to="/register" className="navItem md:px-4 gap-1">
               <FontAwesomeIcon icon={faUser} /> Kayıt Ol
             </Link>
