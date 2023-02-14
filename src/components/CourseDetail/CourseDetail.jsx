@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Auths } from "../../redux/slices/AuthSlice";
 import { motion } from "framer-motion";
+import Loading from "../Loading/Loading";
 const CourseDetail = () => {
   const { user } = useSelector(Auths);
   const [course, setCourse] = useState({});
@@ -70,51 +71,53 @@ const CourseDetail = () => {
   };
 
   return (
-    <div className="mt-16">
-      {course && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-xl">
-            <div className="flex md:flex-row flex-col items-center mb-6">
-              <img
-                className="w-64 h-64 object-cover  rounded-full"
-                src={course.img}
-                alt={course.name}
-              />
-              <div className="ml-6">
-                <h2 className="text-2xl font-medium mb-2">{course.name}</h2>
-                <p className="text-gray-600">{course.desc}</p>
+    <Loading loading={loading}>
+      <div className="mt-16">
+        {course && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-xl">
+              <div className="flex md:flex-row flex-col items-center mb-6">
+                <img
+                  className="w-64 h-64 object-cover  rounded-full"
+                  src={course.img}
+                  alt={course.name}
+                />
+                <div className="ml-6">
+                  <h2 className="text-2xl font-medium mb-2">{course.name}</h2>
+                  <p className="text-gray-600">{course.desc}</p>
+                </div>
               </div>
+              {user && user.role === "student" ? (
+                user.courses.includes(course._id) ? (
+                  <button
+                    onClick={handleLeave}
+                    className={`${
+                      loading ? "opacity-50 cursor-not-allowed" : ""
+                    } bg-indigo-500 hover:bg-indigo-700 text-white text-center font-bold py-2 px-4 rounded m-2`}
+                  >
+                    Kursu bırak
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleEnroll}
+                    className={`${
+                      loading ? "opacity-50 cursor-not-allowed" : ""
+                    } bg-indigo-500 hover:bg-indigo-700 text-white text-center font-bold py-2 px-4 rounded m-2`}
+                  >
+                    Kayıt ol
+                  </button>
+                )
+              ) : null}
+              {!user && <h1>Kayıt olmak için giriş yapmalısınız</h1>}
             </div>
-            {user && user.role === "student" ? (
-              user.courses.includes(course._id) ? (
-                <button
-                  onClick={handleLeave}
-                  className={`${
-                    loading ? "opacity-50 cursor-not-allowed" : ""
-                  } bg-indigo-500 hover:bg-indigo-700 text-white text-center font-bold py-2 px-4 rounded m-2`}
-                >
-                  Kursu bırak
-                </button>
-              ) : (
-                <button
-                  onClick={handleEnroll}
-                  className={`${
-                    loading ? "opacity-50 cursor-not-allowed" : ""
-                  } bg-indigo-500 hover:bg-indigo-700 text-white text-center font-bold py-2 px-4 rounded m-2`}
-                >
-                  Kayıt ol
-                </button>
-              )
-            ) : null}
-            {!user && <h1>Kayıt olmak için giriş yapmalısınız</h1>}
-          </div>
-        </motion.div>
-      )}
-    </div>
+          </motion.div>
+        )}
+      </div>
+    </Loading>
   );
 };
 
