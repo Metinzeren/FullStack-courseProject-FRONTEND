@@ -10,7 +10,6 @@ import Loading from "../Loading/Loading";
 import axios from "axios";
 
 const CourseModal = ({ index, courseID }) => {
-  console.log(courseID, "kursun idsi");
   const [visibleMap, setVisibleMap] = useState({});
   const [courseInfo, setCourseInfo] = useState({
     name: "",

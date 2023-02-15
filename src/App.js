@@ -10,10 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./pages/dashbord/Dashboard";
 import NewCourse from "./pages/NewCourse/NewCourse";
 import Contact from "./pages/contact/Contact";
+import { ScrollTop } from "primereact/scrolltop";
 function App() {
   return (
     <div className="App">
       <ToastContainer />
+      <ScrollTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
