@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import StudentDashboard from "../../components/studentDashboard/StudentDashboard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
+
+import CourseModal from "../../components/UpdateCourseModal/CourseModal";
 const Dashboard = () => {
   const [dashBoardInfo, setDashBoardInfo] = useState([]);
   const [studentInfo, setStudentInfo] = useState([]);
@@ -38,14 +40,11 @@ const Dashboard = () => {
   const deleteCourse = async (id) => {
     setLoading(true);
     try {
-      const res = await axios.delete(
-        `https://kursmeto.onrender.com/courses/${id}`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
+      await axios.delete(`https://kursmeto.onrender.com/courses/${id}`, {
+        headers: {
+          Authorization: token,
+        },
+      });
       toast.success("Kurs Silindi!");
       setLoading(false);
       setDashBoardInfo((prevState) =>
@@ -80,10 +79,7 @@ const Dashboard = () => {
                     className="rounded-lg overflow-hidden shadow-lg bg-white"
                   >
                     <div className="flex justify-between items-center p-1">
-                      <FontAwesomeIcon
-                        className="text-green-500 text-xl cursor-pointer"
-                        icon={faEdit}
-                      />
+                      <CourseModal index={index} courseID={course._id} />
                       <FontAwesomeIcon
                         onClick={() => deleteCourse(course._id)}
                         className="text-rose-600 text-xl cursor-pointer"
