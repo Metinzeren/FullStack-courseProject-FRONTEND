@@ -30,7 +30,7 @@ const CourseDetail = () => {
     const enrollCourseID = course._id;
 
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://kursmeto.onrender.com/courses/enroll",
         { course_id: enrollCourseID },
         {
