@@ -54,7 +54,7 @@
 
 @media (max-width: 768px){
     body{
-        overflow-x: hidden !important;
+        overflow-x: none !important;
        }
     .nav_menu{
         position: absolute;
@@ -77,11 +77,7 @@
         display: block;
     }
 
-    .nav_item{
-        transform: translateX(100%);
-        transition: all 0.5s ease;
-        margin-bottom: 20px;
-    }
+
 
     .item_active{
         transform: translateX(0);

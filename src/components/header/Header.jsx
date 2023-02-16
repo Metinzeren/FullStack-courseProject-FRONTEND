@@ -21,7 +21,6 @@ const Header = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState("nav_menu");
   const [toggleIcon, setToggleIcon] = useState("nav_toggler");
-  const [navItem, setNavItem] = useState("nav_item");
   const userLogout = () => {
     dispatch(logout());
     localStorage.clear();
@@ -37,11 +36,6 @@ const Header = () => {
     toggleIcon === "nav_toggler"
       ? setToggleIcon("nav_toggler toggle")
       : setToggleIcon("nav_toggler");
-
-    //navIteö
-    navItem === "nav_item"
-      ? setNavItem("nav_item item_active")
-      : setNavItem("nav_item");
   };
   if (isLoading) return <Loading />;
   return (
@@ -50,12 +44,12 @@ const Header = () => {
         MTN ZRN
       </Link>
       <ul className={active}>
-        <li className={navItem}>
+        <li>
           <Link to="/" className="md:px-4 items-center text-black">
             <FontAwesomeIcon icon={faHome} /> Anasayfa
           </Link>
         </li>
-        <li className={navItem}>
+        <li>
           <Link to="/contact" className="md:px-4 text-black">
             <FontAwesomeIcon icon={faMessage} /> İletişim
           </Link>
@@ -63,7 +57,7 @@ const Header = () => {
         {(user &&
           user.length !== 0 &&
           (user.role === "admin" || user.role === "teacher") && (
-            <li className={navItem}>
+            <li>
               <Link to="/newcourse" className="md:px-4 text-black">
                 <FontAwesomeIcon icon={faPlus} /> Kurs ekle
               </Link>
@@ -72,22 +66,19 @@ const Header = () => {
           undefined}
         {user ? (
           <li className="flex gap-5 items-start md:flex-row flex-col text-black">
-            <Link to="/dashboard" className="navItem  md:px-4">
+            <Link to="/dashboard" className="  md:px-4">
               {user.name}
             </Link>
-            <button
-              className="navItem md:px-4  text-black"
-              onClick={userLogout}
-            >
+            <button className=" md:px-4  text-black" onClick={userLogout}>
               <FontAwesomeIcon icon={faSignOutAlt} /> Çıkış Yap
             </button>
           </li>
         ) : (
           <li className="flex gap-5 md:flex-row flex-col text-black">
-            <Link to="/register" className="navItem md:px-4 gap-1">
+            <Link to="/register" className=" md:px-4 gap-1">
               <FontAwesomeIcon icon={faUser} /> Kayıt Ol
             </Link>
-            <Link to="/login" className="navItem md:px-4 text-black gap-1">
+            <Link to="/login" className=" md:px-4 text-black gap-1">
               <FontAwesomeIcon icon={faSignInAlt} /> Giriş Yap
             </Link>
           </li>
