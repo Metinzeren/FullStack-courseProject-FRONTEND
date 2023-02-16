@@ -11,7 +11,6 @@ import Dashboard from "./pages/dashbord/Dashboard";
 import NewCourse from "./pages/NewCourse/NewCourse";
 import Contact from "./pages/contact/Contact";
 import { ScrollTop } from "primereact/scrolltop";
-import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <div className="App">
@@ -27,7 +26,6 @@ function App() {
         <Route path="/newcourse" element={<NewCourse />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

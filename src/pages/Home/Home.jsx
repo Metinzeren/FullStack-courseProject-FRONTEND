@@ -5,6 +5,7 @@ import CourseList from "../../components/CourseList/CourseList";
 import Categories from "../../components/Categories/Categories";
 import Loading from "../../components/Loading/Loading";
 import { motion } from "framer-motion";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
@@ -52,6 +53,7 @@ const Home = () => {
             })}
         </div>
       </div>
+      <Footer />
     </Loading>
   );
 };
