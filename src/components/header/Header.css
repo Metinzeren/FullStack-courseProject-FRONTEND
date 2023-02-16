@@ -54,7 +54,7 @@
 
 @media (max-width: 768px){
     body{
-        overflow-x: none !important;
+        overflow-x: hidden !important;
        }
     .nav_menu{
         position: absolute;
