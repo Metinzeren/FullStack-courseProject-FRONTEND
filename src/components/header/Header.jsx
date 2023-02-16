@@ -41,7 +41,7 @@ const Header = () => {
   return (
     <nav className="header w-full top-0  p-4 flex md:flex-row flex-col justify-between items-center">
       <Link to="/" className="md:text-4xl text-2xl text-black">
-        MTN ZRN
+        MTN
       </Link>
       <ul className={active}>
         <li>

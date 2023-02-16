@@ -2,7 +2,7 @@ import React from "react";
 import "primeicons/primeicons.css";
 const Footer = () => {
   return (
-    <div className="bg-white p-1 flex justify-around items-center">
+    <div className="bg-white p-1 flex justify-around items-center mt-12">
       <div>
         <p className="text-sm text-gray-500">Metin Zeren</p>
       </div>

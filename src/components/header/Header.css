@@ -1,4 +1,4 @@
-.header{
+.header {
     background-color: #fff;
     display: flex;
     justify-content: space-between;
@@ -7,7 +7,11 @@
     padding: 0 40px;
     text-transform: uppercase;
     font-weight: bold;
-}
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
 
 .nav_menu{
     align-items: center;
@@ -53,16 +57,13 @@
 }
 
 @media (max-width: 768px){
-    body{
-        overflow-x: hidden !important;
-       }
-    .nav_menu{
-        position: absolute;
+       .nav_menu {
+        position: fixed;
         top: 80px;
         right: 0;
         width: 60%;
         height: calc(100vh - 80px);
-        background-color:#fff;
+        background-color: #fff;
         flex-direction: column;
         z-index: 1;
         transform: translateX(100%);
@@ -71,7 +72,8 @@
         display: flex;
         align-items: flex-start;
         padding: 40px;
-    } 
+        overflow-y: auto; /* menü elemanı içeriği için kaydırma ekler */
+      }
 
     .nav_toggler{
         display: block;
